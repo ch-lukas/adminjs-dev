@@ -1,6 +1,8 @@
 #!/bin/sh
 # Script for init all submodules
 set -e
+read -p "Enter GitHub username: " GHUSERNAME
+read -p "Enter GitHub Developer API key: " GHAPIKEY
 
 git submodule add -b main git@github.com:SoftwareBrothers/adminjs-bundler.git packages/adminjs-bundler
 git submodule add -b main git@github.com:SoftwareBrothers/adminjs-fastify.git packages/adminjs-fastify
@@ -19,6 +21,7 @@ git submodule add -b master git@github.com:SoftwareBrothers/adminjs-passwords.gi
 git submodule add -b master git@github.com:SoftwareBrothers/adminjs-sequelizejs.git packages/adminjs-sequelizejs
 git submodule add -b master git@github.com:SoftwareBrothers/adminjs-typeorm.git packages/adminjs-typeorm
 git submodule add -b master git@github.com:SoftwareBrothers/adminjs-upload.git packages/adminjs-upload
-git submodule add -b master git@github.com:SoftwareBrothers/adminjs.git packages/adminjs
+#git submodule add -b master git@github.com:SoftwareBrothers/adminjs.git packages/adminjs
+git submodule add -b master https://$GHUSERNAME:$GHAPIKEY@github.com/ch-lukas/adminjs.git packages/adminjs
 git submodule add -b master git@github.com:SoftwareBrothers/adminjs-example-app.git adminjs-example-app
 git submodule add -b master git@github.com:SoftwareBrothers/better-docs.git
